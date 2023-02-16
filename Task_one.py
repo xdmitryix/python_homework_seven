@@ -12,4 +12,28 @@
 
 
 phrase = input('введи фразу: ')
-print(phrase)
+phrase_list = phrase.split()
+glas_letter = dict.fromkeys(['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е'], 1)
+lst_true = []
+
+for i in phrase_list:
+    count = 0
+    arr_tmp = (i)
+    for j in arr_tmp:
+        if j in glas_letter:
+            count += 1
+    lst_true.append(count)
+
+for i in lst_true:
+    if i == i+1:
+        result = True
+    else:
+        result = False
+        break
+
+res = all(x == lst_true[0] for x in lst_true)
+
+if res == True:
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
